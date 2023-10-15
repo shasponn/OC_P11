@@ -209,6 +209,10 @@ button:hover {
   background-color: black !important;
 }
 
+.has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button){
+    background: transparent;
+}
+
 /* NAV HEADER */
 
 main#primary.site-main {
@@ -471,7 +475,7 @@ button.photobtn:hover {
   /* Styles pour positionner la modale en plein écran */
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -881,6 +885,12 @@ ul.nav-links a {
   text-decoration: none;
   font-family: "space_monoregular";
   text-transform: uppercase;
+  padding: 16px 0px;
+  margin: 0;
+}
+
+#masthead ul.nav-links a:focus{
+    background-color: transparent;
 }
 
 ul.nav-links a:hover {
@@ -1105,7 +1115,51 @@ ul.nav-links a:hover {
     top: 130px;
     left: 140px;
   }
+}
 
+@media screen and (max-width: 800px) {
+  .modal {
+    height: 100%;
+  }
+
+  .modal-content {
+    width: 300px;
+    margin: 25% auto;
+  }
+
+  form.wpcf7-form {
+    padding: 0;
+  }
+
+  form.wpcf7-form p,
+  form.wpcf7-form .wpcf7-form-control {
+    padding: 0;
+    width: 220px;
+  }
+
+  form.wpcf7-form p:last-child input{
+    padding: 20px;
+    background-color: red;
+  }
+
+  form.wpcf7-form p label,
+  form.wpcf7-form .wpcf7-form-control {
+    font-size: 12px;
+  }
+
+  form.wpcf7-form .wpcf7-form-control-wrap .wpcf7-textarea{
+    height: 80px;
+  }
+
+  form.wpcf7-form p input:focus,
+  form.wpcf7-form .wpcf7-form-control-wrap .wpcf7-textarea{
+    outline: none;
+  }
+
+  form.wpcf7-form p .wpcf7-submit{
+    padding: 8px 0px;
+  }
+  
 }
 
 @media screen and (max-width: 890px) {
@@ -1199,7 +1253,7 @@ ul.nav-links a:hover {
     padding: 16px 0px;
   }
 
-  button#voir-plus{
+  button#voir-plus {
     display: none;
   }
 }
