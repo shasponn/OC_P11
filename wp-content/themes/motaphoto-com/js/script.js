@@ -337,3 +337,4 @@ function navigateCarousel(direction) {
   }
   showImage(currentIndex);
 }
+

@@ -89,44 +89,24 @@ get_header(); ?>
     </div><!--.single-photo-->
 </main><!--#main-->
 
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const MoreButton = document.getElementById('voir-plus');
         const galleryContainer = document.querySelector('.gallery-container .container');
         const currentPhotoId = '<?php echo get_the_ID(); ?>';
 
+        // Apppel de la fonction Single
         if (MoreButton) {
-            MoreButton.addEventListener('click', SingleloadMorePhotos);
-        }
-
-        function SingleloadMorePhotos() {
-            const categoryIds = JSON.parse(MoreButton.getAttribute('data-category-ids'));
-            const loadMoreNonce = '<?php echo wp_create_nonce('single_load_more_photos'); ?>';
-
-            // Requête Ajax en JS natif via Fetch
-            fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        action: 'single_load_more_photos',
-                        category_ids: JSON.stringify(categoryIds),
-                        load_more_nonce: loadMoreNonce,
-                        current_photo_id: currentPhotoId
-                    }),
-                })
-                .then(response => response.text())
-                .then(html => {
-                    galleryContainer.innerHTML = html; // Remplacer le contenu par les nouvelles photos
-                    initializeThickbox(); // Appeler initializeThickbox après l'insertion de nouveau contenu
-                });
+            MoreButton.addEventListener('click', function() {
+                SingleloadMorePhotos(MoreButton, '<?php echo wp_create_nonce('single_load_more_photos'); ?>', galleryContainer, currentPhotoId);
+            });
         }
     });
 
     // CARROSEL 
     var currentPhotoId = <?php echo json_encode($current_photo_id); ?>;
-    
 </script>
 
 

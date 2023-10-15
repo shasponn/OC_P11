@@ -72,7 +72,7 @@ if ($query->have_posts()) {
     echo '</div>';
 
     echo '<div class="btn-container">';
-    echo '<button id="voir-plus" data-paged="1" data-category-ids="' . json_encode($current_category_ids) . '">Toutes les photos</button>';
+    echo '<button id="voir-plus" data-paged="1" data-ajaxurl="' . admin_url('admin-ajax.php') . '" data-category-ids="' . json_encode($current_category_ids) . '">Toutes les photos</button>';
     echo '</div>';
 } else {
     echo 'Pas de photo en cours';
