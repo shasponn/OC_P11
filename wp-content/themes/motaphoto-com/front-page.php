@@ -13,33 +13,34 @@
         <form method="get">
 
             <div class="form_group">
-                <div class="form_group_select">
-                    <label class="custom-select">
-                        <select name="sample category_filter" id="category-filter">
-                            <option value="">Toutes les catégories</option>
-                            <option value="reception">Réception</option>
-                            <option value="television">Télévision</option>
-                            <option value="concert">Concert</option>
-                            <option value="mariage">Mariage</option>
-                        </select>
-                    </label>
+                <div class="group_selects">
+                    <div class="form_group_select">
+                        <label class="custom-select">
+                            <select name="sample category_filter" id="category-filter">
+                                <option value="">Toutes les catégories</option>
+                                <option value="reception">Réception</option>
+                                <option value="television">Télévision</option>
+                                <option value="concert">Concert</option>
+                                <option value="mariage">Mariage</option>
+                            </select>
+                        </label>
 
+                        <label class="custom-select">
+                            <select name="sample format_filter" id="format-filter">
+                                <option value="">Tous les formats</option>
+                                <option value="paysage">Paysage</option>
+                                <option value="portrait">Portrait</option>
+                            </select>
+                        </label>
+                    </div>
                     <label class="custom-select">
-                        <select name="sample format_filter" id="format-filter">
-                            <option value="">Tous les formats</option>
-                            <option value="paysage">Paysage</option>
-                            <option value="portrait">Portrait</option>
+                        <select name="sample sort_by" id="sort-by">
+                            <option value="">Non trié</option>
+                            <option value="newest">Du plus récent au plus ancien</option>
+                            <option value="oldest">Du plus ancien au plus récent</option>
                         </select>
                     </label>
                 </div>
-                <label class="custom-select">
-                    <select name="sample sort_by" id="sort-by">
-                        <option value="">Non trié</option>
-                        <option value="newest">Du plus récent au plus ancien</option>
-                        <option value="oldest">Du plus ancien au plus récent</option>
-                    </select>
-                    <label>
-
             </div>
         </form>
     </div>
@@ -95,5 +96,6 @@
         });
     });
 </script>
+
 
 <?php get_footer(); ?>
