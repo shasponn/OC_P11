@@ -46,7 +46,7 @@
     </div>
 
     <?php
-    include('templates/front-gallery.php');
+    include('templates/front/front-gallery.php');
     ?>
 
 

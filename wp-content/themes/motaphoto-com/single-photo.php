@@ -67,7 +67,7 @@ get_header(); ?>
             <div id="carousel">
                 <div class="carousel-container">
                     <?php
-                    include('templates/single-carrosel.php');
+                    include('templates/single/single-carrosel.php');
                     ?>
                 </div>
                 <div class="group-btn-carrousel">
@@ -81,7 +81,7 @@ get_header(); ?>
             <h3>VOUS AIMEREZ AUSSI </h3>
             <div class="gallery-container">
                 <?php
-                include('templates/single-gallery.php');
+                include('templates/single/single-gallery.php');
                 ?>
             </div>
         </section><!--.gallerie-->
