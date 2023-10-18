@@ -59,7 +59,7 @@ if ($query->have_posts()) {
 
         echo '<div class="img-detail">';
         echo '<a href="' . get_permalink() . '">';
-        echo '<div class="image-container photo-loaded" style="background-image: url(' . esc_url($featured_image_url) . ')" ' . $data_reference . '>';
+        echo '<div class="image-container" style="background-image: url(' . esc_url($featured_image_url) . ')" ' . $data_reference . ' data-thickbox-initialized="false">';
         echo '<div class="overlay">';
         echo '<div class="icon-container">';
         echo '<img src="http://localhost/p11/wp-content/uploads/2023/07/Icon_eye.png" alt="Icone" class="icon icon-center">';
@@ -93,8 +93,8 @@ if ($query->have_posts()) {
 
     if ($query->found_posts > 12) {
         echo '<div class="btn-container">';
-        echo '<button id="load-more-button">Charger plus</button>';
-        echo '</div">';
+        echo '<button id="load-more-button" data-ajaxurl="' . admin_url('admin-ajax.php') .  '" data-found-posts="' . $query->found_posts .  '">Charger plus</button>';
+        echo '</div>';
     }
 } else {
     echo 'Pas de photo en cours';

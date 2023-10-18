@@ -16,7 +16,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-
 //-----------------------------Menu burger-------------------------------//
 
 const button = document.querySelector(".btnburgernmenu");
@@ -28,14 +27,13 @@ button.addEventListener("click", () => {
   nav.classList.toggle("menuburgeropen");
   button.classList.toggle("burgeractive");
 
-  // Vérifier si la classe openburger est présente
+  // Vérifier si la classe openburger est présente - Figer le menu burger pour bloquer le scroll
   if (menuburger.classList.contains("openburger")) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
 });
-
 
 //-----------------------------Select changement de couleur-------------------------------//
 
@@ -46,14 +44,17 @@ function setupSelector(selector) {
     console.log("changé", e.target.value);
   });
 
+  // Fonction pour configurer chaque sélecteur
   if (window.innerWidth >= 420) {
     selector.addEventListener("mousedown", (e) => {
       e.preventDefault();
 
+      // Crée une liste déroulante personnalisée
       const select = selector.children[0];
       const dropDown = document.createElement("ul");
       dropDown.className = "selector-options";
 
+      // Crée des options dans la liste déroulante personnalisée à partir des options
       [...select.children].forEach((option) => {
         const dropDownOption = document.createElement("li");
         dropDownOption.textContent = option.textContent;
@@ -238,7 +239,7 @@ function showThickbox(
       "</h4>";
   });
 
-  // Ajoute les flèches de navigation 
+  // Ajoute les flèches de navigation
   container.appendChild(prevArrow);
   container.appendChild(nextArrow);
   // Ajoute tous les éléments créés à l'overlay pour afficher la boîte modale complète
@@ -304,8 +305,8 @@ function initializeThickbox() {
 
 //-----------------------------Carrosel-------------------------------//
 
-var images = document.querySelectorAll(".carousel-image");
-var currentIndex = 0;
+let images = document.querySelectorAll(".carousel-image");
+let currentIndex = 0;
 
 function showImage(index) {
   // Masquer toutes les images
@@ -319,13 +320,13 @@ function showImage(index) {
 
 // Si l'ID de l'image correspond à l'ID de la photo actuelle, exclure cette image du carrousel
 images.forEach(function (image, index) {
-  var imageId = parseInt(image.dataset.photoId);
+  let imageId = parseInt(image.dataset.photoId);
   if (imageId === currentPhotoId) {
     image.style.display = "none";
   }
 });
 
-// Afficher l'image par défaut
+// Afficher l'image
 showImage(currentIndex);
 
 function navigateCarousel(direction) {
@@ -337,4 +338,3 @@ function navigateCarousel(direction) {
   }
   showImage(currentIndex);
 }
-

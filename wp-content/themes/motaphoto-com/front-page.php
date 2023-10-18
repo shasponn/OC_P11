@@ -52,50 +52,54 @@
 
 </main><!--#main-->
 
-<script>
-    $(document).ready(function() {
-        var page = 1;
+<script>// script.js
 
-        // Fonction pour charger plus de photos
-        function FrontloadMorePhotos() {
-            var data = {
-                action: 'load_more_photos',
-                page: page,
-                category_filter: $('#category-filter').val(),
-                format_filter: $('#format-filter').val(),
-                sort_by: $('#sort-by').val(),
-            };
+$(document).ready(function() {
+    var page = 1;
+    var foundPosts = $('#load-more-button').data('found-posts'); 
 
-            $.get("<?php echo admin_url('admin-ajax.php'); ?>", data, function(response) {
+    function FrontloadMorePhotos() {
+        const ajaxUrl = $('#load-more-button').data('ajaxurl');
+
+        const data = {
+            action: 'load_more_photos',
+            page: page,
+            category_filter: $('#category-filter').val(),
+            format_filter: $('#format-filter').val(),
+            sort_by: $('#sort-by').val(),
+        };
+
+        $.ajax({
+            url: ajaxUrl,
+            type: 'GET',
+            data: data,
+            success: function(response) {
                 if (page === 1) {
                     $('.container').empty();
                 }
                 $('.container').append(response);
                 page++;
 
-                // Masquer le bouton "Charger plus" si toutes les photos ont été chargées
-                if ($('.img-detail').length < <?php echo $query->found_posts; ?>) {
+                if ($('.img-detail').length < foundPosts) {
                     $('#load-more-button').show();
                 } else {
                     $('#load-more-button').hide();
                 }
                 initializeThickbox();
-            });
-        }
-
-        // Appeler loadMorePhotos lorsqu'on clique sur le bouton "Charger plus"
-        $('#load-more-button').on('click', function(event) {
-            event.preventDefault();
-            FrontloadMorePhotos();
+            }
         });
+    }
 
-        // Appeler loadMorePhotos lorsqu'on change les filtres
-        $('#category-filter, #format-filter, #sort-by').on('change', function() {
-            page = 1; // Réinitialiser la page
-            FrontloadMorePhotos();
-        });
+    $('#load-more-button').on('click', function(event) {
+        event.preventDefault();
+        FrontloadMorePhotos();
     });
-</script>
+
+    $('#category-filter, #format-filter, #sort-by').on('change', function() {
+        page = 1; // Réinitialiser la page
+        FrontloadMorePhotos();
+    });
+});</script>
 
 
 <?php get_footer(); ?>

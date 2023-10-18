@@ -89,8 +89,6 @@ get_header(); ?>
     </div><!--.single-photo-->
 </main><!--#main-->
 
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const MoreButton = document.getElementById('voir-plus');
