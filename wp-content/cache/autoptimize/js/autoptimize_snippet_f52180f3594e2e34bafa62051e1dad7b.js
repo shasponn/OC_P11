@@ -1,3 +1,0 @@
-function FrontloadMorePhotos(){let data={action:"load_more_photos",page:page,category_filter:$("#category-filter").val(),format_filter:$("#format-filter").val(),sort_by:$("#sort-by").val(),};let ajaxUrl=loadMoreButton.getAttribute("data-ajaxurl");let queryFoundPosts=parseInt(loadMoreButton.getAttribute("data-query-found-posts"));$.get(ajaxUrl,data,function(response){if(page===1){$(".container").empty();}
-$(".container").append(response);page++;if($(".img-detail").length<queryFoundPosts){$("#load-more-button").show();}else{$("#load-more-button").hide();}
-initializeThickbox();});};
