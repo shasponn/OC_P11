@@ -1268,9 +1268,16 @@ ul.nav-links a:hover {
   }
 
   .image-container {
-    width: 430px;
-    height: 430px;
+    width: 450px;
+    height: 450px;
     background-size: cover;
     background-position: center;
   }
+
+  .icon-center {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 200px;
+    left: 50%;
+}
 }
