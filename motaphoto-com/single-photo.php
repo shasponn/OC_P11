@@ -1,3 +1,5 @@
+<!--TEMPLATE PART POUR CREER LA PAGE PHOTO "UNIQUE"-->
+
 <?php
 
 get_header(); ?>
@@ -19,6 +21,8 @@ get_header(); ?>
         // CPT UI CHAMPS
         $categories = get_the_terms($photo_id, 'categorie');
         $formats = get_the_terms($photo_id, 'format');
+        // Affichage icon/image en dynamique
+        $home_url = get_home_url();
         ?>
 
         <section class="main-photo">
@@ -48,7 +52,7 @@ get_header(); ?>
                     <div class="image-container" style="background-image: url('<?php echo $featured_image_url; ?>');" data-reference="<?php echo $reference; ?>" alt="<?php echo $photo_title; ?>">
                         <div class="overlay">
                             <div class="icon-container">
-                                <img src="http://localhost/p11/wp-content/uploads/2023/07/Icon_fullscreen.png" alt="Icone" class="icon icon-top-right thickbox">
+                                <img src="<?php echo $home_url; ?>/wp-content/uploads/2023/07/Icon_fullscreen.png" alt="Icone" class="icon icon-top-right thickbox">
                             </div>
                         </div>
                     </div>

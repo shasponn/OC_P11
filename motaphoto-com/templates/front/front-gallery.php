@@ -1,3 +1,5 @@
+<!--SCRIPT PHP GALERIE PHOTO POUR FRONT-PHOTO.PHP-->
+
 <?php
 $args = array(
     'post_type' => 'photo',
@@ -62,8 +64,8 @@ if ($query->have_posts()) {
         echo '<div class="image-container" style="background-image: url(' . esc_url($featured_image_url) . ')" ' . $data_reference . ' data-thickbox-initialized="false">';
         echo '<div class="overlay">';
         echo '<div class="icon-container">';
-        echo '<img src="http://localhost/p11/wp-content/uploads/2023/07/Icon_eye.png" alt="Icone" class="icon icon-center">';
-        echo '<img src="http://localhost/p11/wp-content/uploads/2023/07/Icon_fullscreen.png" alt="Icone" class="icon icon-top-right thickbox">';
+        echo '<img src="' . get_home_url() . '/wp-content/uploads/2023/07/Icon_eye.png" alt="Icone" class="icon icon-center">';
+        echo '<img src="' . get_home_url() . '/wp-content/uploads/2023/07/Icon_fullscreen.png" alt="Icone" class="icon icon-top-right thickbox">';
         echo '</div>';
         echo '<div class="photo-info spaced">';
         echo '<p class="photo-title">' . $photo_title . '</p>';

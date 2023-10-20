@@ -1,3 +1,5 @@
+<!--SCRIPT PHP CARROSEL POUR SINGLE-PHOTO.PHP-->
+
 <?php
 
 $current_photo_id = $photo_id;

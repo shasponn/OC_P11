@@ -6,7 +6,7 @@
         <div class="banner-content">
             <h1>Photographe Event</h1>
         </div>
-        <div class="banner-image"></div>
+        <div class="banner-image" style="background-image: url('wp-content/uploads/2023/06/nathalie-11-1-scaled.jpeg');"></div>
     </section><!--.banner-->
 
     <div class="filter-form">
